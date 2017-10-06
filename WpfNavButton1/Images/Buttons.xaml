@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfNavButton1.Images">
+
+    <!-- Navbar Button Icon Brushes -->
+    <ImageBrush x:Key="NavbarNextScreenBrush" ImageSource="Buttons/NavBarNextScreen.png" />
+    <ImageBrush x:Key="NavbarPreviousScreenBrush" ImageSource="Buttons/NavBarPreviousScreen.png" />
+    <ImageBrush x:Key="NavbarSelectScreenBrush" ImageSource="Buttons/NavBarSelectScreen.png" />
+    <ImageBrush x:Key="NavbarClinicalActionsBrush" ImageSource="Buttons/NavBarClinicalActions.png" />
+    <ImageBrush x:Key="NavbarSettingsBrush" ImageSource="Buttons/NavBarSettings.png" />
+    <ImageBrush x:Key="NavbarScreenShotBrush" ImageSource="Buttons/NavBarScreenShot.png" />
+    <ImageBrush x:Key="NavbarSilenceAlarmBrush" ImageSource="Buttons/NavBarSilenceAlarm.png" />
+    <ImageBrush x:Key="NavbarSilenceAlarmPausedBrush" ImageSource="Buttons/NavBarSilenceAlarmPaused.png" />
+    <ImageBrush x:Key="NavbarAlarmBrush" ImageSource="Buttons/NavBarAlarm.png" />
+    <ImageBrush x:Key="NavbarExitBypassBrush" ImageSource="Buttons/ExitBypassButton.png" />
+    <ImageBrush x:Key="NavbarStartNexfinBrush" ImageSource="Buttons/StartNexfin.png" />
+    <ImageBrush x:Key="NavbarStopNexfinBrush" ImageSource="Buttons/StopNexfin.png" />
+    <ImageBrush x:Key="NavbarStartSwanGanzCCOBrush" ImageSource="Buttons/StartSwanGanzCCO.png" />
+    <ImageBrush x:Key="NavbarStopSwanGanzCCOBrush" ImageSource="Buttons/CCOStopTimer.png" />
+    <ImageBrush x:Key="NavbarMonitoringReturnNexfinBrush" ImageSource="Buttons/MonitoringReturnNexfin.png" />
+    <ImageBrush x:Key="NavbarGDTBrush" ImageSource="Buttons/NavBarGDT.png" />
+
+</ResourceDictionary>

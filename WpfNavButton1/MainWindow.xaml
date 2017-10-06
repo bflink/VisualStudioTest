@@ -1,0 +1,646 @@
+﻿<Window x:Class="WpfNavButton1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfNavButton1"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    <Window.Resources>
+
+        <ImageBrush x:Key="NavbarSettingsBrush"
+                    ImageSource="Images/NavBarSettings.png" />
+
+        <Style x:Key="ButtonStyle1"
+               TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnClick1" />
+                            <Storyboard x:Key="OnClick2" />
+                        </ControlTemplate.Resources>
+                        <Grid>
+
+                            <Border x:Name="border"
+                                    BorderThickness="0 1 0 0">
+
+
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="1,0.5"
+                                                         StartPoint="0,0.5">
+                                        <GradientStop Color="Black"
+                                                      Offset="0" />
+                                        <GradientStop Color="#FF050505"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FFEDEDF4"
+                                                      Offset="0.519" />
+                                        <GradientStop Color="#FFBBBBBB"
+                                                      Offset="0.285" />
+                                        <GradientStop Color="#FFB4B4B4"
+                                                      Offset="0.778" />
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0.5"
+                                                         MappingMode="RelativeToBoundingBox"
+                                                         EndPoint="1,0.5">
+                                        <GradientStop Color="#FF9B9B9B" />
+                                        <GradientStop Color="#FF686868"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FF4A4A4A"
+                                                      Offset="0.51" />
+                                        <GradientStop Color="#FF898989"
+                                                      Offset="0.113" />
+                                        <GradientStop Color="#FF707070"
+                                                      Offset="0.9" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                            </Border>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="15" />
+                            <Image Source="{TemplateBinding Tag}" />
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted"
+                                     Value="True" />
+                            <Trigger Property="IsMouseOver"
+                                     Value="True" />
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+                                <Setter Property="BorderThickness"
+                                        TargetName="border"
+                                        Value="0,1,0,4" />
+                                <Setter Property="Background"
+                                        Value="#FFDDDDDD" />
+                                <Setter Property="Background"
+                                        TargetName="border">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="1,0.5"
+                                                             MappingMode="RelativeToBoundingBox"
+                                                             StartPoint="0,0.5">
+                                            <GradientStop Color="#FF2B2B2B" />
+                                            <GradientStop Color="#FF363636"
+                                                          Offset="1" />
+                                            <GradientStop Color="#FF323232"
+                                                          Offset="0.51" />
+                                            <GradientStop Color="#FF363636"
+                                                          Offset="0.113" />
+                                            <GradientStop Color="#FF3E3E3E"
+                                                          Offset="0.9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="False" />
+                            <Trigger Property="IsDefault"
+                                     Value="False" />
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle2"
+               TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnClick1" />
+                            <Storyboard x:Key="OnClick2" />
+                        </ControlTemplate.Resources>
+                        <Grid>
+
+                            <Border x:Name="border"
+                                    BorderThickness="0 1 0 0">
+
+
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="1,0.5"
+                                                         StartPoint="0,0.5">
+                                        <GradientStop Color="Black"
+                                                      Offset="0" />
+                                        <GradientStop Color="#FF050505"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FFEDEDF4"
+                                                      Offset="0.519" />
+                                        <GradientStop Color="#FFBBBBBB"
+                                                      Offset="0.285" />
+                                        <GradientStop Color="#FFB4B4B4"
+                                                      Offset="0.778" />
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0.5"
+                                                         MappingMode="RelativeToBoundingBox"
+                                                         EndPoint="1,0.5">
+                                        <GradientStop Color="#FF1D1D1D" />
+                                        <GradientStop Color="#FF212121"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FF444444"
+                                                      Offset="0.51" />
+                                        <GradientStop Color="#FF444444"
+                                                      Offset="0.113" />
+                                        <GradientStop Color="#FF444242"
+                                                      Offset="0.897" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                            </Border>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="15" />
+                            <Image Source="{TemplateBinding Tag}" />
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted"
+                                     Value="True" />
+                            <Trigger Property="IsMouseOver"
+                                     Value="True" />
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+                                <Setter Property="BorderThickness"
+                                        TargetName="border"
+                                        Value="0,1,0,4" />
+                                <Setter Property="Background"
+                                        Value="#FFDDDDDD" />
+                                <Setter Property="Background"
+                                        TargetName="border">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="1,0.5"
+                                                             MappingMode="RelativeToBoundingBox"
+                                                             StartPoint="0,0.5">
+                                            <GradientStop Color="#FF2B2B2B" />
+                                            <GradientStop Color="#FF363636"
+                                                          Offset="1" />
+                                            <GradientStop Color="#FF323232"
+                                                          Offset="0.51" />
+                                            <GradientStop Color="#FF363636"
+                                                          Offset="0.113" />
+                                            <GradientStop Color="#FF3E3E3E"
+                                                          Offset="0.9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="False" />
+                            <Trigger Property="IsDefault"
+                                     Value="False" />
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Storyboard x:Key="OnChecked1" />
+        <Style x:Key="ToggleButtonStyle1"
+               TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard1" />
+                            <Storyboard x:Key="Storyboard2" />
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Border x:Name="outerBorder"
+                                    BorderThickness="0 1 0 0">
+
+
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="1,0.5"
+                                                         StartPoint="0,0.5">
+                                        <GradientStop Color="Black"
+                                                      Offset="0" />
+                                        <GradientStop Color="#FF050505"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FFEDEDF4"
+                                                      Offset="0.519" />
+                                        <GradientStop Color="#FFBBBBBB"
+                                                      Offset="0.285" />
+                                        <GradientStop Color="#FFB4B4B4"
+                                                      Offset="0.778" />
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0.5"
+                                                         MappingMode="RelativeToBoundingBox"
+                                                         EndPoint="1,0.5">
+                                        <GradientStop Color="#FF9B9B9B" />
+                                        <GradientStop Color="#FF686868"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FF4A4A4A"
+                                                      Offset="0.51" />
+                                        <GradientStop Color="#FF898989"
+                                                      Offset="0.113" />
+                                        <GradientStop Color="#FF707070"
+                                                      Offset="0.9" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="15"
+                                              RenderTransformOrigin="0.5,0.5">
+                                <ContentPresenter.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </ContentPresenter.RenderTransform>
+                            </ContentPresenter>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded" />
+                            <Trigger Property="IsChecked"
+                                     Value="False">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="Storyboard2_BeginStoryboard"
+                                                     Storyboard="{StaticResource Storyboard2}" />
+                                </Trigger.EnterActions>
+                                <Setter Property="Background"
+                                        TargetName="outerBorder">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="1,0.5"
+                                                             MappingMode="RelativeToBoundingBox"
+                                                             StartPoint="0,0.5">
+                                            <GradientStop Color="#FF1D1D1D" />
+                                            <GradientStop Color="#FF191919"
+                                                          Offset="1" />
+                                            <GradientStop Color="#FF727272"
+                                                          Offset="0.51" />
+                                            <GradientStop Color="#FF3C3C3C"
+                                                          Offset="0.113" />
+                                            <GradientStop Color="#FF424242"
+                                                          Offset="0.911" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransform"
+                                        TargetName="contentPresenter">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.95"
+                                                            ScaleX="0.95" />
+                                            <SkewTransform />
+                                            <RotateTransform />
+                                            <TranslateTransform Y="5" />
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyleAlarmRing"
+               TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+
+
+                            <Storyboard x:Key="Storyboard1" />
+                            <Storyboard x:Key="AlarmRingStoryBoard"
+                                        RepeatBehavior="Forever">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+                                                               Storyboard.TargetName="contentPresenter">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4"
+                                                          Value="1.2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.2"
+                                                          Value="1.2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.6"
+                                                          Value="1">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CircleEase EasingMode="EaseIn" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:3.5"
+                                                          Value="1.0001" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+                                                               Storyboard.TargetName="contentPresenter">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4"
+                                                          Value="1.2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.2"
+                                                          Value="1.2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.6"
+                                                          Value="1">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CircleEase EasingMode="EaseIn" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
+                                                               Storyboard.TargetName="contentPresenter">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4"
+                                                          Value="0" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.6"
+                                                          Value="-30">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.8"
+                                                          Value="0">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1"
+                                                          Value="30">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1.2"
+                                                          Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+
+
+                        </ControlTemplate.Resources>
+                        <Grid>
+
+                            <Border x:Name="border"
+                                    BorderThickness="0 1 0 0">
+
+
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="1,0.5"
+                                                         StartPoint="0,0.5">
+                                        <GradientStop Color="Black"
+                                                      Offset="0" />
+                                        <GradientStop Color="#FF050505"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FFEDEDF4"
+                                                      Offset="0.519" />
+                                        <GradientStop Color="#FFBBBBBB"
+                                                      Offset="0.285" />
+                                        <GradientStop Color="#FFB4B4B4"
+                                                      Offset="0.778" />
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0.5"
+                                                         MappingMode="RelativeToBoundingBox"
+                                                         EndPoint="1,0.5">
+                                        <GradientStop Color="#FF9B9B9B" />
+                                        <GradientStop Color="#FF686868"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FF4A4A4A"
+                                                      Offset="0.51" />
+                                        <GradientStop Color="#FF898989"
+                                                      Offset="0.113" />
+                                        <GradientStop Color="#FF707070"
+                                                      Offset="0.9" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="15"
+                                              RenderTransformOrigin="0.5,0.5">
+                                <ContentPresenter.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </ContentPresenter.RenderTransform>
+                            </ContentPresenter>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled"
+                                     Value="True">
+                                <Trigger.EnterActions>
+
+                                    <BeginStoryboard x:Name="AlarmRingStoryBoard_BeginStoryboard"
+                                                     Storyboard="{StaticResource AlarmRingStoryBoard}" />
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsDefaulted"
+                                     Value="True" />
+                            <Trigger Property="IsMouseOver"
+                                     Value="True" />
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+                                <Setter Property="BorderThickness"
+                                        TargetName="border"
+                                        Value="0,1,0,4" />
+                                <Setter Property="Background"
+                                        Value="#FFDDDDDD" />
+                                <Setter Property="Background"
+                                        TargetName="border">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="1,0.5"
+                                                             MappingMode="RelativeToBoundingBox"
+                                                             StartPoint="0,0.5">
+                                            <GradientStop Color="#FF2B2B2B" />
+                                            <GradientStop Color="#FF363636"
+                                                          Offset="1" />
+                                            <GradientStop Color="#FF323232"
+                                                          Offset="0.51" />
+                                            <GradientStop Color="#FF363636"
+                                                          Offset="0.113" />
+                                            <GradientStop Color="#FF3E3E3E"
+                                                          Offset="0.9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="False" />
+                            <Trigger Property="IsDefault"
+                                     Value="False" />
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ActionButtonStyleReskin"
+               TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard1" />
+                            <Storyboard x:Key="Storyboard2" />
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Border x:Name="outerBorder"
+                                    BorderThickness="0 1 0 0">
+
+
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="1,0.5"
+                                                         StartPoint="0,0.5">
+                                        <GradientStop Color="Black"
+                                                      Offset="0" />
+                                        <GradientStop Color="#FF050505"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FFEDEDF4"
+                                                      Offset="0.519" />
+                                        <GradientStop Color="#FFBBBBBB"
+                                                      Offset="0.285" />
+                                        <GradientStop Color="#FFB4B4B4"
+                                                      Offset="0.778" />
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0.5"
+                                                         MappingMode="RelativeToBoundingBox"
+                                                         EndPoint="1,0.5">
+                                        <GradientStop Color="#FF656565" />
+                                        <GradientStop Color="Black"
+                                                      Offset="1" />
+                                        <GradientStop Color="#FF343434"
+                                                      Offset="0.95" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="15"
+                                              RenderTransformOrigin="0.5,0.5">
+                                <ContentPresenter.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </ContentPresenter.RenderTransform>
+                            </ContentPresenter>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded" />
+                            <Trigger Property="IsChecked"
+                                     Value="False">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard x:Name="Storyboard2_BeginStoryboard"
+                                                     Storyboard="{StaticResource Storyboard2}" />
+                                </Trigger.EnterActions>
+                                <Setter Property="Background"
+                                        TargetName="outerBorder">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="1,0.5"
+                                                             MappingMode="RelativeToBoundingBox"
+                                                             StartPoint="0,0.5">
+                                            <GradientStop Color="#FF1D1D1D" />
+                                            <GradientStop Color="#FF191919"
+                                                          Offset="1" />
+                                            <GradientStop Color="#FF727272"
+                                                          Offset="0.51" />
+                                            <GradientStop Color="#FF3C3C3C"
+                                                          Offset="0.113" />
+                                            <GradientStop Color="#FF424242"
+                                                          Offset="0.911" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="RenderTransform"
+                                        TargetName="contentPresenter">
+                                    <Setter.Value>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="0.95"
+                                                            ScaleX="0.95" />
+                                            <SkewTransform />
+                                            <RotateTransform />
+                                            <TranslateTransform Y="5" />
+                                        </TransformGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="446*" />
+            <ColumnDefinition Width="71*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical"
+                    Grid.ColumnSpan="2">
+            <Button HorizontalAlignment="Left"
+                    Height="98.3 "
+                    Margin="0"
+                    Background="{DynamicResource NavbarSettingsBrush}"
+                    Style="{DynamicResource ButtonStyleAlarmRing}"
+                    VerticalAlignment="Top"
+                    Width="86"
+                    Tag="Images/NavBarSettings-1.png">
+
+                <Image Source="Images/NavBarSilenceAlarmPlain.png" />
+
+                <!--<Image   Source="{StaticResource NavbarSettingsBrush}"/>-->
+
+
+
+            </Button>
+            <ToggleButton HorizontalAlignment="Left"
+                          Height="98.3 "
+                          Width="86"
+                          Margin="0"
+                          Style="{DynamicResource ActionButtonStyleReskin}">
+                <Image Source="Images/NavBarSettings-1.png" />
+
+            </ToggleButton>
+
+        </StackPanel>
+        <TextBlock Grid.Column="1"
+                   Height="23"
+                   Margin="0,128,10,0"
+                   TextWrapping="Wrap"
+                   Text="{Binding IsChecked, ElementName=toggleButton1}"
+                   VerticalAlignment="Top" />
+        <!--<Button.Background >
+                    <ImageBrush  ImageSource="Images/NavBarSettings.png" />
+                </Button.Background>
+            </Button>-->
+    </Grid>
+</Window>
